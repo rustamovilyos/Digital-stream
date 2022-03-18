@@ -4,8 +4,8 @@ import random, shutil, sys, time
 
 def stream():
     # Задаем константы:
-    min_stream_length = 20  # (!) Попробуйте заменить это значение на 1 или 50.
-    max_stream_length = 22  # (!) Попробуйте заменить это значение на 100.
+    min_stream_length = 3  # (!) Попробуйте заменить это значение на 1 или 50.
+    max_stream_length = 50  # (!) Попробуйте заменить это значение на 100.
     pause = 0.08  # (!) Попробуйте заменить это значение на 0.0 или 2.0.
     stream_chars = ['1', '0']  # (!) Попробуйте заменить их на другие символы.
 
@@ -37,10 +37,10 @@ def stream():
 
                 # выводим пробел и символ 1/0
                 if columns[i] > 0:
-                    print(random.choice(stream_chars), end='')
-                    columns[i] -= 1
+                    print(random.choice(stream_chars), end=' ')
+                    columns[i] += 1
                 else:
-                    print('', end='')
+                    print('.', end='.')
             print()  # Выводим символ новой строки в конце строки столбцов.
             sys.stdout.flush()  # Обеспечиваем появление текста на экране.
             time.sleep(pause)
